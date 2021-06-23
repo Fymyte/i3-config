@@ -17,6 +17,8 @@ set $terminal i3-sensible-terminal
 
 set $lock-screen-timeout 15
 
+set $theme forest
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -304,8 +306,8 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id ~/.config/polybar/forest/scripts/launcher.sh
-bindsym $mod+shift+d exec --no-startup-id ~/.config/polybar/forest/scripts/powermenu.sh
+bindsym $mod+d exec --no-startup-id ~/.config/polybar/$theme/scripts/launcher.sh
+bindsym $mod+shift+d exec --no-startup-id ~/.config/polybar/$theme/scripts/powermenu.sh
 
 bindsym $mod+F2 exec firefox
 # A usefull set of tools
@@ -348,7 +350,7 @@ exec --no-startup-id emoji-keyboard
 exec_always --no-startup-id fix_xcursor
 
 # Start polybar with proper theme
-exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
+exec_always --no-startup-id ~/.config/polybar/launch.sh --$theme
 
 # Restore screen layout and background
 # exec --no-startup-id ~/.screenlayout/2-21x9-display-v2.sh; sleep 2;

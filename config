@@ -106,7 +106,10 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
+bindsym $mod+h focus left
+bindsym $mod+j focus up
+bindsym $mod+k focus down
+bindsym $mod+l focus right
 # Should window under cursor take the focus
 focus_follows_mouse no
 
@@ -115,6 +118,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move right
+bindsym $mod+Shift+j move up
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move left
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -122,8 +129,6 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -292,8 +297,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+p exec --no-startup-id pulseaudio
 bindsym $mod+Ctrl+m exec pavucontrol
-
 
 #######################################
 ### application's startup bindings: ###
@@ -400,8 +405,8 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-# Additionnaly set lock shortcut to mod+l
-bindsym $mod+l exec --no-startup-id i3exit lock
+# Additionnaly set lock shortcut to alt+l
+bindsym $mod+Ctrl+l exec --no-startup-id i3exit lock
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -411,10 +416,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -444,24 +449,24 @@ mode "resize" {
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+#set_from_resource $term_background background
+#set_from_resource $term_foreground foreground
+#set_from_resource $term_color0     color0
+#set_from_resource $term_color1     color1
+#set_from_resource $term_color2     color2
+#set_from_resource $term_color3     color3
+#set_from_resource $term_color4     color4
+#set_from_resource $term_color5     color5
+#set_from_resource $term_color6     color6
+#set_from_resource $term_color7     color7
+#set_from_resource $term_color8     color8
+#set_from_resource $term_color9     color9
+#set_from_resource $term_color10    color10
+#set_from_resource $term_color11    color11
+#set_from_resource $term_color12    color12
+#set_from_resource $term_color13    color13
+#set_from_resource $term_color14    color14
+#set_from_resource $term_color15    color15
 
 
 # Theme colors

@@ -10,8 +10,8 @@ set $mod Mod4
 set $alt Mod1
 
 # Set monitors (xrandr --current to list them)
-set $monitor1 "DP-2"
-set $monitor2 "DP-3"
+set $monitor1 "DP-4"
+set $monitor2 "DP-0"
 
 set $terminal i3-sensible-terminal
 
@@ -28,15 +28,15 @@ set $theme forest
 ##########################################
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 3
-default_floating_border normal
+default_border none
+default_floating_border none
 
 # Hide borders
 hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 3
+bindsym $mod+y border pixel 5
 bindsym $mod+n border normal
 
 
@@ -239,7 +239,7 @@ bindsym $alt+Shift+2 move container to workspace $ws10; workspace $ws10
 
 # Open applications on specific workspaces
 assign [class="Firefox"] $ws2
-assign [class="Mailspring"] $ws9
+assign [class="Mailspring"] pixel 2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -344,18 +344,14 @@ bindsym $alt+Ctrl+t exec $terminal -e bpytop
 # Start authentification agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# NetworkManager tray icon
-# exec --no-startup-id nm-applet
-
 # Keyboard manager
 # exec --no-startup-id clipit -n
-exec --no-startup-id emoji-keyboard
 
 # Restore cursor theme
 exec_always --no-startup-id fix_xcursor
 
 # Start polybar with proper theme
-exec_always --no-startup-id ~/.config/polybar/launch.sh --$theme
+exec_always --no-startup-id ~/.config/polybar/launch.sh --$theme --cpu
 
 # Restore screen layout and background
 # exec --no-startup-id ~/.screenlayout/2-21x9-display-v2.sh; sleep 2;
@@ -363,6 +359,8 @@ exec --no-startup-id nitrogen --restore # ; sleep 1; picom -b
 
 # Automaticaly lock the screen after x min of inactivity
 exec --no-startup-id xautolock -time $lock-screen-timeout -locker "i3exit lock"
+
+exec --no-startup-id picom
 
 # Bluetooth icon tray
 # exec --no-startup-id blueman-applet

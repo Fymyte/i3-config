@@ -334,7 +334,10 @@ bindsym Print exec --no-startup-id flameshot screen
 bindsym $mod+Print --release exec --no-startup-id flameshot full
 
 # Task manager
-bindsym $alt+Ctrl+t exec $terminal -e bpytop
+bindsym $alt+Ctrl+t exec $terminal -e btop
+
+# Emoji chooser
+bindsym $alt+Ctrl+z exec rofimoji --action clipboard
 
 
 ################################
@@ -349,18 +352,17 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Restore cursor theme
 exec_always --no-startup-id fix_xcursor
-
 # Start polybar with proper theme
 exec_always --no-startup-id ~/.config/polybar/launch.sh --$theme --cpu
 
 # Restore screen layout and background
 # exec --no-startup-id ~/.screenlayout/2-21x9-display-v2.sh; sleep 2;
-exec --no-startup-id nitrogen --restore # ; sleep 1; picom -b
+exec_always --no-startup-id nitrogen --restore # ; sleep 1; picom -b
 
 # Automaticaly lock the screen after x min of inactivity
 exec --no-startup-id xautolock -time $lock-screen-timeout -locker "i3exit lock"
 
-exec --no-startup-id picom
+exec_always --no-startup-id picom
 
 # Bluetooth icon tray
 # exec --no-startup-id blueman-applet
